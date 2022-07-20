@@ -1,0 +1,33 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<style>
+    button{
+        height: 3rem;
+        width: 5rem;
+        background-color: azure;
+        text-decoration: none;
+        font-size: large;
+        border: 2px solid aqua;
+        margin-left: 1rem;
+    }
+
+</style>
+<h1>Questions for Poll</h1>
+<h2>Welcome to our Poll Contest</h2>
+<h3>Click on Question to choose</h3>
+
+{% if latest_question_list %}
+    <ol>
+    {% for question in latest_question_list %}
+{#        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>#}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ol>
+<button><a href="{% url 'polls:result'%}">Results</a></button>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+

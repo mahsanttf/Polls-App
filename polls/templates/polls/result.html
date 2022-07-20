@@ -1,0 +1,64 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style3.css' %}">
+
+<style>
+    body{
+        margin: 1rem;
+        padding: 1rem;
+    }
+    table tr:nth-child(1) th{
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    table, th, td{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+
+    td, th{
+        padding: 1rem;
+        font-weight: bold;
+    }
+
+    button{
+        cursor: pointer;
+        height: 3rem;
+        width: 5rem;
+        background-color: azure;
+        text-decoration: none;
+        font-size: large;
+        border: 2px solid aqua;
+    }
+</style>
+
+<a href="{% url 'polls:index'%}"><button>Back</button></a>
+<h1 style="padding: 2rem">Question Results</h1>
+{#<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKkfZE73awNEKU6iMknPkV4eF8qXSZeNGGRQ&usqp=CAU" alt="Result" style="float:right;width:800px;height:400px;">#}
+{#<ol>#}
+{#{% for question in list %}#}
+{#    <li>{{ question.question_text }}</li>#}
+{#    <ul>#}
+{#    {% for choice in question.choice_set.all %}#}
+{#        <li style="font-size: 1.5rem; line-height: 2rem">{{ choice.choice_text }} ---- {{ choice.votes }} vote{{ choice.votes|pluralize}}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#{% endfor %}#}
+{#</ol>#}
+
+
+<table style="width:50%; margin: auto">
+    <tr>
+        <th>Questions</th>
+        <th colspan="2">Results</th>
+    </tr>
+<tr>
+{% for question in list %}
+    <th style="font-size: 1.5rem; text-align: left">{{ question.question_text }}</th>
+    {% for choice in question.choice_set.all %}
+        <td style="font-size: 1rem">{{ choice.choice_text }} ---- {{ choice.votes }} vote{{ choice.votes|pluralize}}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+

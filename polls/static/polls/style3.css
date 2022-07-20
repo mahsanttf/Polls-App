@@ -1,0 +1,30 @@
+body{
+    background: white url("images/m1.jpg") no-repeat;
+    margin: 2rem;
+    padding: 2rem;
+
+}
+
+ol,li {
+    color: black;
+    font-size: 2rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ol{
+    margin-left: 1rem;
+    line-height: 4rem;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h3{
+    margin-left: 1rem;
+    font-size: 1.5vw;
+}
